@@ -1,27 +1,24 @@
 # Geospatial Data Exercise G3
 
-This is a notebook for the third lesson of the kaggle course
+This is an exercise notebook for the fourth lesson of the kaggle course
 ["Geospatial Analysis"](https://www.kaggle.com/learn/geospatial-analysis)
 offered by Alexis Cook and Jessica Li. The main goal of the lesson is
-to get used to __Interactive Maps__. We will learn how to use `folium`
-with the following functions.
+to get used to __Geocoding__ and __Spatial Join__.
 
-* Map
-* Circle (= bubble map)
-* HeatMaps
-* Choropleth
 
 ------------------------------------------------------------------
 ## How to run the Demo
 
-1. Load `exercise-interactive-maps.ipynb' to Jupyter Notebook and run, or
+1. Load `exercise-manipulating-geospatial-data.ipynb` to Jupyter Notebook and run, or
 
-2. `> python3 exercise-interactive-maps.py`
+2. `> python3 exercise-manipulating-geospatial-data.py`
 
 ------------------------------------------------------------------
 ## Task
-Visualize how the largest cities in Japan are vulnerable to the
-threat of big earthquakes.
+
+Visualize the distribution of the coffeshops Starbucks in California.
+Find out the best county to build the next 'Starbucks Reserve Roastery'
+(flagship atelier/gallery shops of Starbucks) in California.
 
 ------------------------------------------------------------------
 ## Directory Tree
@@ -29,8 +26,8 @@ threat of big earthquakes.
 .
 ├── LICENSE
 ├── README.md
-├── exercise-interactive-maps.ipynb
-├── exercise-interactive-maps.py
+├── exercise-manipulating-geospatial-data.ipynb
+├── exercise-manipulating-geospatial-data.py
 ├── html
 │   ├── m_1.html
 │   ├── m_1b.html
@@ -38,7 +35,18 @@ threat of big earthquakes.
 │   ├── m_2b.html
 │   ├── m_3.html
 │   ├── m_3b.html
-│   └── p_1.html
+│   ├── m_4.html
+│   ├── m_4b.html
+│   ├── m_5.html
+│   ├── m_5b.html
+│   ├── m_6.html
+│   ├── m_6b.html
+│   ├── m_7.html
+│   ├── m_7b.html
+│   ├── m_8.html
+│   ├── m_8b.html
+│   ├── p_1.html
+│   └── p_2.html
 ├── kaggle_geospatial
 │   ├── __init__.py
 │   ├── __pycache__
@@ -48,7 +56,8 @@ threat of big earthquakes.
 └── requirements.txt
 
 ```
-* HTML files are made by `folium` package to visualize geospatial data.
+* `html` directoty in the repo is intentionally kept empty. It will be
+   filled when the Python demo ran successfully. 
 * kgsp is a python module that contains functions used in the exercise. 
 ------------------------------------------------------------------
 END

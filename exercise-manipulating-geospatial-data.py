@@ -27,7 +27,7 @@ from geopandas.tools import geocode
 
 # | ### Geocoding
 
-# | Geocoding is to convert the names or the addresses of places
+# | Geocoding is to convert the names and the addresses of places
 # | to the latitudes and the longitude, and vice versa.
 # | Here is a quick experiment with 'Marienplatz' in Munich.
 
@@ -72,19 +72,19 @@ result_4.head(1)
 # |
 # | ## 2. Task
 # |
-# | Visualize the distribution of the coffeshops Starbucks in California.
+# | Visualize the distribution of the coffeeshop Starbucks in California.
 # | Find out the best county to build the next 'Starbucks Reserve Roastery'
-# | (flagship atelier/gallery shops of Starbucks) in San Francisco.
+# | (flagship atelier/gallery shops of Starbucks) in California.
 
 # | ## 3. Data
 # |
-# | 1. Locations of Starbucks in California.
+# | 1. Locations of existing (non-Roastery) Starbucks in California.
 # | 2. General underlying map.
 # | 3. Boundaries of counties in California.
 # | 4. Statistics of counties in California, such as population,
 # |    area in km<sup>2</sup>, and median ages.  Among all, a unique information is
-# |    the number of __high earners__ (household with annual income over $150,000).
-# |
+# |    the number of __high earners__ (household with annual income over $150,000)
+# |    in each county.
 # |
 # | ## 4. Notebook
 
@@ -135,7 +135,7 @@ print(CA_median_age.head(3))
 
 # -------------------------------------------------------
 # | Start with Starbucks data.
-# | There are 5 missing 'Longitude' and 'Latitude' n the data.
+# | There are 5 missing 'Longitude' and 'Latitude' in the data.
 
 starbucks.isna().sum()
 starbucks.loc[starbucks['Longitude'].isna(), :]
@@ -159,11 +159,8 @@ starbucks[starbucks['City'] == 'Berkeley']
 
 # -------------------------------------------------------
 # | `.combine_first` is to fill `None` with the second
-# | DataFrame. Make sure that the index is aligned [two DataFrames
+# | DataFrame. Make sure that the indices are aligned [two DataFrames
 # | use the same (=consistent) index].
-# | Let us take a look at the locations we just found.
-# | Visualize the tuple (latitude, longitude) in Berkeley
-# | in the OpenStreetMap.
 
 # -------------------------------------------------------
 # | Now we have a complete table.
@@ -173,7 +170,7 @@ starbucks['Address'].str.contains('CA').mean()
 # | All shops are in California.
 
 # -------------------------------------------------------
-# | We will start visualization the locations of the cafes.
+# | We will start visualization of the locations of the cafes.
 # | First, setup the center of the map, tiles, and the zoom factor.
 
 center = [starbucks['Latitude'].mean(), starbucks['Longitude'].mean()]
@@ -197,7 +194,6 @@ show_on_browser(m_1, CWD + './html/m_1b.html')
 # | Combine all of them on the index `GEOID`.
 # | Make sure that the one with the geometry column
 # | is the left most DataFrame.
-# |
 
 CA_stats = CA_counties.merge(CA_pop, on='GEOID')
 CA_stats = CA_stats.merge(CA_high_earners, on='GEOID')
@@ -235,7 +231,7 @@ CA_stats['fraction_HE'] = CA_stats['high_earners'] / CA_stats['population']
 
 # -------------------------------------------------------
 # | Create a couple of choropleths to see
-# | the demographic and the economic landscape of California
+# | the demographic and the economic landscape of California.
 
 tiles = 'Stamen Terrain'
 m_3 = folium.Map(location=center, tiles=tiles, zoom_start=zoom)
@@ -255,18 +251,19 @@ show_on_browser(m_3, CWD + './html/m_3b.html')
 
 # -------------------------------------------------------
 # | __`Choropleth`__ summary.
-# |  - `columns`: two columns of 'CA_stats' for statistics to shwo.
-# |  - `key_on` : which one of the two above to use to match with 'geo_data'.
+# |  - `columns`: two columns of `CA_stats` for statistics to show.
+# |  - `key_on` : which one of the two above to use to match with `geo_data`.
 
 # -------------------------------------------------------
+
 # | 1. In the counties far away from the coast line toward the western hills
-# | of Sierra Nevada, the median ages are high, sometimes over 50.
-# |
-# | 2. In and nare the two metropolises, Los Angeles and San Francisco,
-# | the median ages are in between 35-45.
-# |
+# |    of Sierra Nevada, the median ages are high, sometimes over 50.
+
+# | 2.  In and near the two metropolises, Los Angeles and San Francisco,
+# |    the median ages are in between 35-45.
+
 # | 3. In between the cities along the coast and Sierra Nevada, in Great Valley
-# |  and Mohave Desert, the median ages are younger than 35.
+# |    and Mohave Desert, the median ages are under 35.
 # |
 # -------------------------------------------------------
 
@@ -307,7 +304,7 @@ show_on_browser(m_5, CWD + './html/m_5b.html')
 # | 1. Northern part of San Francisco Bay Area has the highest
 # | fraction of high earners.
 # -------------------------------------------------------
-# | Let us look at the number of Starbucks stores for each county.
+# | Let us look at the number of Starbucks stores in each county.
 
 starbucks = gpd.GeoDataFrame(starbucks,
                              geometry=gpd.points_from_xy(
@@ -382,7 +379,7 @@ embed_map(m_8, './html/m_8.html')
 # --
 show_on_browser(m_8, CWD + './html/m_8b.html')
 # -------------------------------------------------------
-# | To see all of the above in Scatter plot and Bar plots.
+# | See all of the above in Scatter plot and Bar plots.
 # -------------------------------------------------------
 
 trace = go.Scatter(x=CA_stats['median_age'],
@@ -469,7 +466,7 @@ fig.show()
 # | ## 5. Conclusion
 # | Where to locate the next Starbucks Reserve Roastery in California?
 # |
-# | 1. The customer segmentation would be young, professional, and early adapter
+# | 1. The target customer-segment would be young, professional, and early adapter
 # |  with the priority in this order.
 # |
 # | 2. The strategy depends on how we see the number of Starbucks per capita.
@@ -484,13 +481,13 @@ fig.show()
 # -------------------------------------------------------
 # | ## 6. Appendix
 # | ### Spatial Join
-# | 'Spatial join' joins two GeoDataFrames according to their geometrical matchning.
+# | 'Spatial join' joins two GeoDataFrames according to their geometrical matching.
 # | Suppose that the first GeoDataFrames has `POINT` object in 'geometry' column
 # | and the second GeoDataFrames has `POLYGON`. One can join two GeoDataFrame so that
 # | the `POINT` is included in `POLYGON`.
 # |
 # | We assigned the total number of Starbucks in `starbucks` to each county
-# | in `CA_stats` above. Let us the other way around, and add county information
+# | in `CA_stats` above. Let us do the other way around, and add county information
 # | to `starbucks`.
 
 starbucks.head(3)
