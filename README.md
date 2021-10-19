@@ -1,4 +1,4 @@
-# Geospatial Data Exercise G3
+# Geospatial Data Exercise G4
 
 This is an exercise notebook for the fourth lesson of the kaggle course
 ["Geospatial Analysis"](https://www.kaggle.com/learn/geospatial-analysis)
