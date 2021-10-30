@@ -39,7 +39,7 @@ print(result_1['address'])
 result_1.head(1)
 
 # | `geocode` returns a GeoDataFrame with Shapely `POINT` object
-# | and the address.
+# | and the address in human-readable form.
 
 # --
 result_2 = geocode(["Neuschwanstein"])
