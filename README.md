@@ -5,12 +5,11 @@ This is an exercise notebook for the fourth lesson of the kaggle course
 offered by Alexis Cook and Jessica Li. The main goal of the lesson is
 to get used to __Geocoding__ and __Spatial Join__.
 
-
 ------------------------------------------------------------------
 ## How to run the Demo
 
-1. Load `exercise-manipulating-geospatial-data.ipynb` to Jupyter Notebook and run, or
-
+1. Load `exercise-manipulating-geospatial-data.ipynb` to Jupyter Notebook and run
+or
 2. `> python3 exercise-manipulating-geospatial-data.py`
 
 ------------------------------------------------------------------
@@ -56,9 +55,9 @@ Find out the best county to build the next 'Starbucks Reserve Roastery'
 └── requirements.txt
 
 ```
-* `html` directoty in the repo is intentionally kept empty. It will be
+* `html` directory in the repo is intentionally kept empty. It will be
    filled when the Python demo ran successfully. 
-* kgsp is a python module that contains functions used in the exercise. 
+* `kgsp` is a python module that contains functions used in the exercise. 
 ------------------------------------------------------------------
 END
 
