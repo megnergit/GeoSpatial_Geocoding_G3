@@ -253,11 +253,12 @@ show_on_browser(m_3, CWD + './html/m_3b.html')
 # | __`Choropleth`__ summary.
 # |  - `columns`: two columns of `CA_stats` for statistics to show.
 # |  - `key_on` : which one of the two above to use to match with `geo_data`.
+# | 
+# -------------------------------------------------------
 
 # -------------------------------------------------------
-# |
 # | 1.  In the counties far away from the coast line toward the western hills
-# |    of Sierra Nevada, the median ages are high, sometimes over 50.
+# |     of Sierra Nevada, the median ages are high, sometimes over 50.
 # |
 # | 2.  In and near the two metropolises, Los Angeles and San Francisco,
 # |    the median ages are intermediate, 35-45.
