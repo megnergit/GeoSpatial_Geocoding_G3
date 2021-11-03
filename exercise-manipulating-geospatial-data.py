@@ -256,16 +256,13 @@ show_on_browser(m_3, CWD + './html/m_3b.html')
 
 # -------------------------------------------------------
 
-# | 1. In the counties far away from the coast line toward the western hills
+# | *  In the counties far away from the coast line toward the western hills
 # |    of Sierra Nevada, the median ages are high, sometimes over 50.
-
-# | 2. In and near the two metropolises, Los Angeles and San Francisco,
+# | *  In and near the two metropolises, Los Angeles and San Francisco,
 # |    the median ages are intermediate, 35-45.
-
-# | 3. In between the cities along the coast and Sierra Nevada, in Great Valley
+# | *  In between the cities along the coast and Sierra Nevada, in Great Valley
 # |    and Mohave Desert, the median ages are under 35.
-
-# | 4. We might interpret the picture as a migration of people. Someone who 
+# | *  We might interpret the picture as a migration of people. Someone who 
 # |    are raised in rural part of California, come to big cities to work, 
 # |    and spend their retirement in highland, where the climates are mild. 
 # |
